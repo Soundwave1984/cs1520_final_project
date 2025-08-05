@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="all and (min-width:451px)" type="text/css" href="USE URL_FOR HERE">
-    <link rel="stylesheet" media="all and (max-width:450px)" type="text/css" href="USE URL_FOR HERE">
-    <script type="text/javascript" src="USE URL_FOR HERE"></script>
+    <link rel="stylesheet" media="all and (min-width:451px)" type="text/css" href="{{ url_for('static', filename='css/main_menu_monitor.css') }}">
+    <link rel="stylesheet" media="all and (max-width:450px)" type="text/css" href="{{ url_for('static', filename='css/main_menu_smartphone.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main_menu.js') }}"></script>
     <title>Restaurant Depot</title>
 </head>
 
 <body>
-    <h1 id="main_menu_h1">Main Menu</h1>
+    <h1 id="main_menu_h1">Main Menu - Table {{ table_number }}</h1>
     <img id="restaurant_logo" src="{{ url_for('static', filename='images/restaurant_logo.jpg') }}" alt="">
     <div id="left_div">
         <ul id="left_div_first_ul">
@@ -199,11 +199,11 @@
         </ul>
     </div>
     <div id="right_div">
-        <form action="" method="">
+        <form action="{{ url_for('order', table_number=table_number) }}" method="POST">
             <h2>Order Summary</h2>
-            <textarea id="order_summary" name="order_summary" rows=20 cols=30 id=""></textarea>
+            <textarea id="order_summary" name="order_summary" rows=20 cols=30></textarea>
             <label for="customer_name">Customer Name: </label>
-            <input type="text" name="customer_name">
+            <input type="text" name="customer_name" required>
             <input id="submit_button" type="submit" value="Place Order">
         </form>
     </div>

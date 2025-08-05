@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/order_summary.js') }}"></script>
+    <title>Order Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        .order-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .order-info {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        .order-items {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            white-space: pre-line;
+            font-family: monospace;
+        }
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <h1>Order Summary</h1>
+        
+        <div class="success-message">
+            <strong>✓ Order Confirmed!</strong><br>
+            Your order is being processed and will be delivered to your table shortly.
+        </div>
+        
+        <div class="order-info">
+            <strong>Customer Name:</strong> {{ order.customer_name }}
+        </div>
+        
+        <div class="order-info">
+            <strong>Table Number:</strong> {{ order.table_number }}
+        </div>
+        
+        <div class="order-info">
+            <strong>Order Details:</strong>
+        </div>
+        
+        <div class="order-items">{{ order.orders }}</div>
+        
+        <div style="text-align: center; margin-top: 30px; color: #666;">
+            This page will automatically redirect to the main menu in 15 seconds...
+        </div>
+    </div>
+</body>
+</html>
